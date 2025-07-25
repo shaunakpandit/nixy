@@ -14,7 +14,7 @@
     ../../nixos/tailscale.nix
     ../../nixos/hyprland.nix
 
-    ../../nixos/omen.nix # For my laptop only
+    # ../../nixos/omen.nix # For my laptop only
 
     # You should let those lines as is
     ./hardware-configuration.nix
