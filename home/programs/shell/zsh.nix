@@ -84,7 +84,7 @@ in {
     initContent =
       # bash
       ''
-        bindkey -e
+        bindkey -v
         ${
           if fetch == "neofetch"
           then pkgs.neofetch + "/bin/neofetch"
@@ -94,6 +94,12 @@ in {
           then "echo; ${pkgs.pfetch}/bin/pfetch"
           else ""
         }
+
+        # =============================
+        # Fzf Aliases
+        # =============================
+        alias ff='nvim "$(fzf --tmux 70% -m --preview="bat --color=always {}")"'
+        alias al="alias | fzf"
 
         function sesh-sessions() {
           session=$(sesh list -t -c | fzf --height 70% --reverse)
@@ -196,6 +202,7 @@ in {
         function preexec {
           print -n "\e]133;C\e\\"
         }
+
 
       '';
   };

@@ -9,7 +9,10 @@
 
     # Programs
     ../../home/programs/kitty
-    ../../home/programs/nvf
+    # ../../home/programs/nvf
+    ../../home/programs/ghostty.nix
+    ../../home/programs/prismlauncher.nix
+    ../../home/programs/neovim
     ../../home/programs/shell
     ../../home/programs/fetch
     ../../home/programs/git
