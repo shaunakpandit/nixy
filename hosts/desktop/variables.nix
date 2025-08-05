@@ -21,10 +21,10 @@
     location = "Washington DC";
     timeZone = "America/New_York";
     defaultLocale = "en_US.UTF-8";
-    # extraLocale = "fr_FR.UTF-8";
+    extraLocale = "fr_FR.UTF-8";
 
     git = {
-      name = "shaunak pandit";
+      username = "shaunakpandit";
       email = "shaunakdpandit@gmail.com";
     };
 
