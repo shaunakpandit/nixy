@@ -49,7 +49,7 @@
   # lua config 
   xdg.configFile = {
     "nvim" = {
-      source = ./lazyvim;
+      source = ./nvim;
       recursive = true;
     };
   };
