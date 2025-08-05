@@ -9,7 +9,7 @@
   ];
 
   config.var = {
-    hostname = "nixy";
+    hostname = "nexus";
     username = "shaunak";
     configDirectory =
       "/home/"

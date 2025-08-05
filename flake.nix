@@ -38,20 +38,19 @@
 
   outputs = inputs @ {nixpkgs, ...}: {
     nixosConfigurations = {
-      nixy =
-        # CHANGEME: This should match the 'hostname' in your variables.nix file
-        nixpkgs.lib.nixosSystem {
-          modules = [
-            {
-              nixpkgs.overlays = [];
-              _module.args = {inherit inputs;};
-            }
-            # inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME: check https://github.com/NixOS/nixos-hardware
-            inputs.home-manager.nixosModules.home-manager
-            inputs.stylix.nixosModules.stylix
-            ./hosts/desktop/configuration.nix # CHANGEME: change the path to match your host folder
-          ];
-        };
+      # CHANGEME: This should match the 'hostname' in your variables.nix file
+      nexus = nixpkgs.lib.nixosSystem {
+        modules = [
+          {
+            nixpkgs.overlays = [];
+            _module.args = {inherit inputs;};
+          }
+          # inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME: check https://github.com/NixOS/nixos-hardware
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          ./hosts/desktop/configuration.nix # CHANGEME: change the path to match your host folder
+        ];
+      };
       # Jack is my server
       jack = nixpkgs.lib.nixosSystem {
         modules = [
