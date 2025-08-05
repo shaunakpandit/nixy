@@ -46,10 +46,10 @@
               nixpkgs.overlays = [];
               _module.args = {inherit inputs;};
             }
-            inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME: check https://github.com/NixOS/nixos-hardware
+            # inputs.nixos-hardware.nixosModules.omen-16-n0005ne # CHANGEME: check https://github.com/NixOS/nixos-hardware
             inputs.home-manager.nixosModules.home-manager
             inputs.stylix.nixosModules.stylix
-            ./hosts/laptop/configuration.nix # CHANGEME: change the path to match your host folder
+            ./hosts/desktop/configuration.nix # CHANGEME: change the path to match your host folder
           ];
         };
       # Jack is my server

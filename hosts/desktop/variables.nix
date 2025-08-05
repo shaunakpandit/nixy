@@ -18,8 +18,8 @@
 
     keyboardLayout = "fr";
 
-    location = "Paris";
-    timeZone = "Europe/Paris";
+    location = "Washington DC";
+    timeZone = "America/New_York";
     defaultLocale = "en_US.UTF-8";
     # extraLocale = "fr_FR.UTF-8";
 
