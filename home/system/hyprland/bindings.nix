@@ -2,11 +2,11 @@
   wayland.windowManager.hyprland.settings = {
     bind =
       [
-        "$mod,RETURN, exec, uwsm app -- ${pkgs.kitty}/bin/kitty" # Kitty
+        "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Kitty
         "$mod,E, exec,  uwsm app -- ${pkgs.xfce.thunar}/bin/thunar" # Thunar
         "$mod,B, exec,  uwsm app -- zen-beta" # Zen Browser
         "$mod,K, exec,  uwsm app -- ${pkgs.bitwarden}/bin/bitwarden" # Bitwarden
-        "$mod,L, exec,  uwsm app -- ${pkgs.hyprlock}/bin/hyprlock" # Lock
+        "$mod,Z, exec,  uwsm app -- ${pkgs.hyprlock}/bin/hyprlock" # Lock
         "$mod,X, exec, powermenu" # Powermenu
         "$mod,SPACE, exec, menu" # Launcher
         "$mod,C, exec, quickmenu" # Quickmenu
@@ -16,10 +16,10 @@
         "$mod,Q, killactive," # Close window
         "$mod,T, togglefloating," # Toggle Floating
         "$mod,F, fullscreen" # Toggle Fullscreen
-        "$mod,left, movefocus, l" # Move focus left
-        "$mod,right, movefocus, r" # Move focus Right
-        "$mod,up, movefocus, u" # Move focus Up
-        "$mod,down, movefocus, d" # Move focus Down
+        "$mod,h, movefocus, l" # Move focus left
+        "$mod,l, movefocus, r" # Move focus Right
+        "$mod,k, movefocus, u" # Move focus Up
+        "$mod,j, movefocus, d" # Move focus Down
         "$shiftMod,up, focusmonitor, -1" # Focus previous monitor
         "$shiftMod,down, focusmonitor, 1" # Focus next monitor
         "$shiftMod,left, layoutmsg, addmaster" # Add to master
