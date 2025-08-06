@@ -91,14 +91,14 @@ in {
         "WLR_DRM_NO_ATOMIC,1"
         "WLR_BACKEND,vulkan"
         "WLR_RENDERER,vulkan"
-        "WLR_NO_HARDWARE_CURSORS,1"
+        "WLR_NO_HARDWARE_CURSORS,0"
         "SDL_VIDEODRIVER,wayland"
         "CLUTTER_BACKEND,wayland"
         "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1" # CHANGEME: Related to the GPU
       ];
 
       cursor = {
-        no_hardware_cursors = true;
+        no_hardware_cursors = false;
         default_monitor = "DP-4";
       };
 
