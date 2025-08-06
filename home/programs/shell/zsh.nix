@@ -39,8 +39,6 @@ in {
       vi = "nvim";
       v = "nvim";
       c = "clear";
-      c = "clear";
-      c = "clear";
       e = "exit";
       cd = "z";
       ls = "eza --icons=always --no-quotes";
