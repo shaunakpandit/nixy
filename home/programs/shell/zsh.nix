@@ -52,6 +52,7 @@ in {
       mkdir = "mkdir -p";
       rm = "${pkgs.rmtrash}/bin/rmtrash";
       rmdir = "${pkgs.rmtrash}/bin/rmdirtrash";
+      build = "sudo nixos-rebuild switch --flake ~/.config/nixos#nexus";
 
       obsidian-no-gpu = "env ELECTRON_OZONE_PLATFORM_HINT=auto obsidian --ozone-platform=x11";
       wireguard-import = "nmcli connection import type wireguard file";
