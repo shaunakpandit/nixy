@@ -38,5 +38,5 @@
   };
 
   # To avoid systemd services hanging on shutdown
-  systemd.settings.Manager = "DefaultTimeoutStopSec=10s";
+  # systemd.settings.Manager = "DefaultTimeoutStopSec=10s";
 }
