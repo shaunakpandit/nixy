@@ -39,8 +39,8 @@ in {
       vi = "nvim";
       v = "nvim";
       c = "clear";
-      clera = "clear";
-      celar = "clear";
+      c = "clear";
+      c = "clear";
       e = "exit";
       cd = "z";
       ls = "eza --icons=always --no-quotes";
@@ -63,12 +63,12 @@ in {
       nix-shell = "nix-shell --command zsh";
 
       # git
-      g = "lazygit";
+      lz = "lazygit";
       ga = "git add";
       gc = "git commit";
       gcu = "git add . && git commit -m 'Update'";
       gp = "git push";
-      gpl = "git pull";
+      gl = "git pull";
       gs = "git status";
       gd = "git diff";
       gco = "git checkout";
@@ -77,8 +77,8 @@ in {
       grs = "git reset HEAD~1";
       grh = "git reset --hard HEAD~1";
 
-      gaa = "git add .";
-      gcm = "git commit -m";
+      ga = "git add .";
+      gcam = "git commit -m";
     };
 
     initContent =
@@ -101,108 +101,11 @@ in {
         alias ff='nvim "$(fzf --tmux 70% -m --preview="bat --color=always {}")"'
         alias al="alias | fzf"
 
-        function sesh-sessions() {
-          session=$(sesh list -t -c | fzf --height 70% --reverse)
-          [[ -z "$session" ]] && return
-          sesh connect $session
-        }
-
-        function chatgptfolder(){
-          echo "################################"
-          echo "###         TREE             ###"
-          echo "################################"
-          ${pkgs.eza}/bin/eza --tree -aF --icons never
-          echo -e "\n\n"
-          echo "##############################"
-          echo "###        CONTENT         ###"
-          echo "##############################"
-          find . -type f -not -path '*/.git/*' -print0 | while IFS= read -r -d "" file; do
-              echo -e "\n--- DEBUT: $file ---\n"
-              cat "$file"
-              echo -e "\n--- FIN: $file ---\n"
-          done
-        }
-
-
-        function n4c() {
-          nix develop --no-write-lock-file --refresh "github:nix4cyber/n4c#''${1:-all}" -c zsh
-        }
-
-        zle     -N             sesh-sessions
-        bindkey -M emacs '\es' sesh-sessions
-        bindkey -M vicmd '\es' sesh-sessions
-        bindkey -M viins '\es' sesh-sessions
-
-        # search history based on what's typed in the prompt
-        autoload -U history-search-end
-        zle -N history-beginning-search-backward-end history-search-end
-        zle -N history-beginning-search-forward-end history-search-end
-        bindkey "^[OA" history-beginning-search-backward-end
-        bindkey "^[OB" history-beginning-search-forward-end
-
-        # General completion behavior
-        zstyle ':completion:*' completer _extensions _complete _approximate
-
-        # Use cache
-        zstyle ':completion:*' use-cache on
-        zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
-
-        # Complete the alias
-        zstyle ':completion:*' complete true
-
-        # Autocomplete options
-        zstyle ':completion:*' complete-options true
-
-        # Completion matching control
-        zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-        zstyle ':completion:*' keep-prefix true
-
-        # Group matches and describe
-        zstyle ':completion:*' menu select
-        zstyle ':completion:*' list-grouped false
-        zstyle ':completion:*' list-separator '''
-        zstyle ':completion:*' group-name '''
-        zstyle ':completion:*' verbose yes
-        zstyle ':completion:*:matches' group 'yes'
-        zstyle ':completion:*:warnings' format '%F{red}%B-- No match for: %d --%b%f'
-        zstyle ':completion:*:messages' format '%d'
-        zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
-        zstyle ':completion:*:descriptions' format '[%d]'
-
-        # Colors
-        zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-
-        # case insensitive tab completion
-        zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
-        zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
-        zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
-        zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
-        zstyle ':completion:*' special-dirs true
-        zstyle ':completion:*' squeeze-slashes true
-
-        # Sort
-        zstyle ':completion:*' sort false
-        zstyle ":completion:*:git-checkout:*" sort false
-        zstyle ':completion:*' file-sort modification
-        zstyle ':completion:*:eza' sort false
-        zstyle ':completion:complete:*:options' sort false
-        zstyle ':completion:files' sort false
-
-        ${lib.optionalString config.services.gpg-agent.enable ''
-          gnupg_path=$(ls $XDG_RUNTIME_DIR/gnupg)
-          export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gnupg/$gnupg_path/S.gpg-agent.ssh"
-        ''}
-
-        # Allow foot to pipe command output
-        function precmd {
-          if ! builtin zle; then
-              print -n "\e]133;D\e\\"
-          fi
-        }
-        function preexec {
-          print -n "\e]133;C\e\\"
-        }
-
+        # =============================
+        # Navigation
+        # =============================
+        alias ..='cd ..'
+        alias nixos='cd ~/.config/nixos/'
 
       '';
   };

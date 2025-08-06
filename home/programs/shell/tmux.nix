@@ -11,33 +11,13 @@
     # plugins that live in nixpkgs
     plugins = with pkgs.tmuxPlugins;
       [
-        tmux-sessionx
-        sensible
-        online-status
         vim-tmux-navigator
         cpu
         tmux-fzf
-      ]
-      ++ [
-        (
-          let
-            plugin = pkgs.stdenv.mkDerivation {
-              pname = "tmuxplugins-tmux-zap";
-              version = "main";
-              src = pkgs.fetchFromGitHub {
-                owner = "AleckAstan";
-                repo = "tmux-zap";
-                rev = "main";
-                sha256 = "10pgj6qxaam8fdkvv7vavvzc0lp2c49k8x8dlbp3ly1q1f3l7skj";
-              };
-              installPhase = ''
-                mkdir -p $out
-                cp -r . $out/
-              '';
-            };
-          in
-            plugin // {rtp = plugin;}
-        )
+        catppuccin
+        tmux-sessionx
+        sensible
+        online-status
       ];
 
     extraConfig = ''
@@ -139,17 +119,14 @@
 
       # tmux-zap defaults
       unbind d
-      set -g @zap_key    d
-      set -g @zap_width  '50%'
-      set -g @zap_height '40%'
+      bind-key h run-shell "tmux popup -E -w 50% -h 40% zap"
+      # unbind d
+      # set -g @zap_key    d
+      # set -g @zap_width  '50%'
+      # set -g @zap_height '40%'
 
       # tmux-sessionx default bind
       set -g @sessionx-bind o
-
-      ##############################################################################
-      # INITIALISE TPM (keep at bottom!)
-      ##############################################################################
-      # run '~/.tmux/plugins/tpm/tpm'
     '';
   };
 }
