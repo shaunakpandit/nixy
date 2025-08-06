@@ -63,7 +63,6 @@ in {
 
       # git
       lz = "lazygit";
-      ga = "git add";
       gc = "git commit";
       gcu = "git add . && git commit -m 'Update'";
       gp = "git push";
@@ -77,7 +76,7 @@ in {
       grh = "git reset --hard HEAD~1";
 
       ga = "git add .";
-      gcam = "git commit -m";
+      gcam = "git add . && commit -m";
     };
 
     initContent =
