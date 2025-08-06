@@ -39,7 +39,7 @@
 
                 # Name first Pane and start zsh
                 tmux rename-window -t 0 'dotfiles'
-                tmux send-keys -t 'nebulaOS' 'cd ~/nebulaOS/' C-m # Switch to bind script?
+                tmux send-keys -t 'nebulaOS' 'cd ~/.config/nixos/' C-m # Switch to bind script?
 
                 # Create and setup pane for hugo server
                 tmux new-window -t $SESSION2:1 -n 'notes'
@@ -65,7 +65,7 @@
                 cut -d':' -f1,2 |
                 while IFS=':' read -r session window; do
                         tmux switch-client -t "$session"
-                        tmux select-window -t "${session}:$window"
+                        tmux select-window -t "\${session}:\$window"
                 done
     '';
 
