@@ -15,14 +15,21 @@
       };
 
       listener = [
+        { 
+            timeout = 180;
+            on-timeout = "brightnessctl -s && brightnessctl s 1%";
+            on-resume = "brightnessctl -r";
+        }
+
         {
-          timeout = 600;
+          timeout = 190;
           on-timeout = "pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock";
         }
 
         {
-          timeout = 660;
-          on-timeout = "systemctl suspend";
+          timeout = 200;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on"; 
         }
       ];
     };

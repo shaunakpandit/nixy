@@ -85,7 +85,7 @@
     polarity = "dark";
     image = pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/moutains-and-stars_black.png";
-      sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+      sha256 = "sha256-xVhaeAGs4U1zpx/WlGv17Vtr3uw92qNq0JvgXqAnEpE=";
     };
   };
 }
