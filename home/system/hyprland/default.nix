@@ -69,7 +69,8 @@ in {
       ];
 
       monitor = [
-        "DP-4,3840x2160@240,0x0,1, bitdepth, 10"
+        "monitor = , preferred, auto, 1"
+        # "DP-4,3840x2160@239.99,0x0,1, bitdepth, 10"
       ];
 
       env = [
