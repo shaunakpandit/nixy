@@ -101,6 +101,7 @@ in {
     vim
     go
     comma
+    luarocks
   ];
 
   xdg.portal = {
